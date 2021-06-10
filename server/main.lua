@@ -239,7 +239,7 @@ AddEventHandler('inventory:server:OpenInventory', function(name, id, other)
 				elseif name == "attachment_crafting" then
 					secondInv.name = "attachment_crafting"
 					secondInv.label = other.label
-					secondInv.maxweight = 900000
+					secondInv.maxweight = 0
 					secondInv.inventory = other.items
 					secondInv.slots = #other.items
 				elseif name == "otherplayer" then

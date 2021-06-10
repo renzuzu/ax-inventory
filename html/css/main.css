@@ -113,7 +113,7 @@ body {
     z-index: 105;
 }
 
-.player-inventory > .other-inventory > .item-slot > .item-slot-key p {
+.player-inventory > .item-slot > .item-slot-key p {
     position: absolute;
     background:transparent;
     color: white;

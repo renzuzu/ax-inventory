@@ -777,7 +777,7 @@ function swap($fromSlot, $toSlot, $fromInv, $toInv, $toAmount) {
                             qualityLabel = (newData.info.quality);
                         }
                         if (newData.info.quality == 0) {
-                            qualityLabel = "BROKEN";
+                            qualityLabel = "Destroyed";
                         }
                         $toInv.find("[data-slot=" + $toSlot + "]").find(".item-slot-quality-bar").css({
                             "width": qualityLabel + "%",
@@ -843,7 +843,7 @@ function swap($fromSlot, $toSlot, $fromInv, $toInv, $toAmount) {
                             qualityLabel = (newData.info.quality);
                         }
                         if (newData.info.quality == 0) {
-                            qualityLabel = "BROKEN";
+                            qualityLabel = "Destroyed";
                         }
                         $toInv.find("[data-slot=" + $toSlot + "]").find(".item-slot-quality-bar").css({
                             "width": qualityLabel + "%",
@@ -893,7 +893,7 @@ function swap($fromSlot, $toSlot, $fromInv, $toInv, $toAmount) {
                                 qualityLabel = (newDataFrom.info.quality);
                             }
                             if (newDataFrom.info.quality == 0) {
-                                qualityLabel = "BROKEN";
+                                qualityLabel = "Destroyed";
                             }
                             $fromInv.find("[data-slot=" + $fromSlot + "]").find(".item-slot-quality-bar").css({
                                 "width": qualityLabel + "%",
@@ -968,7 +968,7 @@ function swap($fromSlot, $toSlot, $fromInv, $toInv, $toAmount) {
                             qualityLabel = (fromData.info.quality);
                         }
                         if (fromData.info.quality == 0) {
-                            qualityLabel = "BROKEN";
+                            qualityLabel = "Destroyed";
                         }
                         $toInv.find("[data-slot=" + $toSlot + "]").find(".item-slot-quality-bar").css({
                             "width": qualityLabel + "%",
@@ -1017,7 +1017,7 @@ function swap($fromSlot, $toSlot, $fromInv, $toInv, $toAmount) {
                                 qualityLabel = (toData.info.quality);
                             }
                             if (toData.info.quality == 0) {
-                                qualityLabel = "BROKEN";
+                                qualityLabel = "Destroyed";
                             }
                             $fromInv.find("[data-slot=" + $fromSlot + "]").find(".item-slot-quality-bar").css({
                                 "width": qualityLabel + "%",
@@ -1110,7 +1110,7 @@ function swap($fromSlot, $toSlot, $fromInv, $toInv, $toAmount) {
                             qualityLabel = (newDataTo.info.quality);
                         }
                         if (newDataTo.info.quality == 0) {
-                            qualityLabel = "BROKEN";
+                            qualityLabel = "Destroyed";
                         }
                         $toInv.find("[data-slot=" + $toSlot + "]").find(".item-slot-quality-bar").css({
                             "width": qualityLabel + "%",
@@ -1174,7 +1174,7 @@ function swap($fromSlot, $toSlot, $fromInv, $toInv, $toAmount) {
                                 qualityLabel = (newDataFrom.info.quality);
                             }
                             if (newDataFrom.info.quality == 0) {
-                                qualityLabel = "BROKEN";
+                                qualityLabel = "Destroyed";
                             }
                             $fromInv.find("[data-slot=" + $fromSlot + "]").find(".item-slot-quality-bar").css({
                                 "width": qualityLabel + "%",
@@ -1274,7 +1274,7 @@ var requiredItemOpen = false;
                     qualityLabel = (item.info.quality);
                 }
                 if (item.info.quality == 0) {
-                    qualityLabel = "BROKEN";
+                    qualityLabel = "Destroyed";
                     if (!IsOtherInventory) {
                         if (!IsHotbar) {
                             $(".player-inventory").find("[data-slot=" + item.slot + "]").find(".item-slot-quality-bar").css({

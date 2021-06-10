@@ -374,7 +374,7 @@ RegisterNetEvent("inventory:client:OpenInventory")
 AddEventHandler("inventory:client:OpenInventory", function(PlayerAmmo, inventory, other)
     if not IsEntityDead(PlayerPedId()) then
         ToggleHotbar(false)
-        --TriggerScreenblurFadeIn(0)
+        TriggerScreenblurFadeIn(0)
         SetNuiFocus(true, true)
         if other ~= nil then
             currentOtherInventory = other.name
@@ -539,7 +539,7 @@ AddEventHandler("inventory:client:UseWeapon", function(weaponData, shootbool)
     local weaponName = tostring(weaponData.name)
     if currentWeapon == weaponName then
         SetCurrentPedWeapon(ped, GetHashKey("WEAPON_UNARMED"), true)
-        RemoveAllPedWeapons(ped, true)
+        --RemoveAllPedWeapons(ped, true)
         TriggerEvent('weapons:client:SetCurrentWeapon', nil, shootbool)
         currentWeapon = nil
     elseif weaponName == "weapon_stickybomb" then
@@ -704,7 +704,7 @@ AddEventHandler("inventory:client:CheckWeapon", function(weaponName)
     if currentWeapon == weaponName then 
         TriggerEvent('weapons:ResetHolster')
         SetCurrentPedWeapon(ped, GetHashKey("WEAPON_UNARMED"), true)
-        RemoveAllPedWeapons(ped, true)
+        --RemoveAllPedWeapons(ped, true)
         currentWeapon = nil
     end
 end)
@@ -807,7 +807,7 @@ RegisterNUICallback("CloseInventory", function(data, cb)
         CurrentDrop = 0
     end
     TriggerEvent('randPickupAnim')
-    --TriggerScreenblurFadeOut(0)
+    TriggerScreenblurFadeOut(0)
     SetNuiFocus(false, false)
     inInventory = false
 end)

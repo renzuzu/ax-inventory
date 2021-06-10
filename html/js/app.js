@@ -307,13 +307,13 @@ function FormatItemInfo(itemData) {
                 gender = "Woman";
             }
             $(".item-info-title").html('<p>'+itemData.label+'</p>')
-            $(".item-info-description").html('<p><strong>CSN: </strong><span>' + itemData.info.citizenid + '</span></p><p><strong>First Name: </strong><span>' + itemData.info.firstname + '</span></p><p><strong>Last Name: </strong><span>' + itemData.info.lastname + '</span></p><p><strong>Birth Date: </strong><span>' + itemData.info.birthdate + '</span></p><p><strong>Gender: </strong><span>' + gender + '</span></p><p><strong>Nationality: </strong><span>' + itemData.info.nationality + '</span></p>');
+            $(".item-info-description").html('<p><strong>CID: </strong><span>' + itemData.info.citizenid + '</span></p><p><strong>First Name: </strong><span>' + itemData.info.firstname + '</span></p><p><strong>Last Name: </strong><span>' + itemData.info.lastname + '</span></p><p><strong>Birth Date: </strong><span>' + itemData.info.birthdate + '</span></p><p><strong>Gender: </strong><span>' + gender + '</span></p><p><strong>Nationality: </strong><span>' + itemData.info.nationality + '</span></p>');
         } else if (itemData.name == "driver_license") {
             $(".item-info-title").html('<p>'+itemData.label+'</p>')
             $(".item-info-description").html('<p><strong>First Name: </strong><span>' + itemData.info.firstname + '</span></p><p><strong>Last Name: </strong><span>' + itemData.info.lastname + '</span></p><p><strong>Birth Date: </strong><span>' + itemData.info.birthdate + '</span></p><p><strong>Licenses: </strong><span>' + itemData.info.type + '</span></p>');
         } else if (itemData.name == "lawyerpass") {
             $(".item-info-title").html('<p>'+itemData.label+'</p>')
-            $(".item-info-description").html('<p><strong>Pass-ID: </strong><span>' + itemData.info.id + '</span></p><p><strong>First Name: </strong><span>' + itemData.info.firstname + '</span></p><p><strong>Last Name: </strong><span>' + itemData.info.lastname + '</span></p><p><strong>CSN: </strong><span>' + itemData.info.citizenid + '</span></p>');
+            $(".item-info-description").html('<p><strong>Pass-ID: </strong><span>' + itemData.info.id + '</span></p><p><strong>First Name: </strong><span>' + itemData.info.firstname + '</span></p><p><strong>Last Name: </strong><span>' + itemData.info.lastname + '</span></p><p><strong>CID: </strong><span>' + itemData.info.citizenid + '</span></p>');
         } else if (itemData.name == "harness") {
             $(".item-info-title").html('<p>'+itemData.label+'</p>')
             $(".item-info-description").html('<p>'+itemData.info.uses+' uses left.</p>');
@@ -362,7 +362,7 @@ function FormatItemInfo(itemData) {
             $(".item-info-description").html('<p><strong>Worth: </strong><span>$' + itemData.info.worth + '</span></p>');
         } else if (itemData.name == "labkey") {
             $(".item-info-title").html('<p>'+itemData.label+'</p>')
-            $(".item-info-description").html('<p>Lab: ' + itemData.info.lab + '</p>');
+            $(".item-info-description").html('<p>A key with the number ' + itemData.info.lab + ' engraved into it' + '</p>');
         } else {
             $(".item-info-title").html('<p>'+itemData.label+'</p>')
             $(".item-info-description").html('<p>' + itemData.description + '</p>')
@@ -1228,7 +1228,7 @@ var requiredItemOpen = false;
 
     Inventory.dropslots = 30;
     Inventory.droplabel = "Ground";
-    Inventory.dropmaxweight = 1000000
+    Inventory.dropmaxweight = 500000
 
     Inventory.Error = function() {
         $.post("http://ax-inventory/PlayDropFail", JSON.stringify({}));
@@ -1412,7 +1412,7 @@ var requiredItemOpen = false;
         }
         var per =(totalWeight/1000)/(data.maxweight/100000)
         $(".pro").css("width",per+"%");
-        $("#player-inv-weight").html("Weight:" + (totalWeight / 1000).toFixed(2) + " / " + (data.maxweight / 1000).toFixed(2));
+        $("#player-inv-weight").html("Weight: " + (totalWeight / 1000).toFixed(2) + " / " + (data.maxweight / 1000).toFixed(2) + " lbs");
         playerMaxWeight = data.maxweight;
         if (data.other != null) 
         {
@@ -1421,7 +1421,7 @@ var requiredItemOpen = false;
                 $("#other-inv-label").html(data.other.label);
             } else {
                 $("#other-inv-label").html(data.other.label)
-                $("#other-inv-weight").html("Weight: " + (totalWeightOther / 1000).toFixed(2) + " / " + (data.other.maxweight / 1000).toFixed(2))
+                $("#other-inv-weight").html("Weight: " + (totalWeightOther / 1000).toFixed(2) + " / " + (data.other.maxweight / 1000).toFixed(2) + " lbs")
                 var per12 =(totalWeightOther/1000)/(data.other.maxweight/100000)
                 $(".pro1").css("width",per12+"%");
             }
@@ -1429,7 +1429,7 @@ var requiredItemOpen = false;
             otherLabel = data.other.label;
         } else {
             $("#other-inv-label").html(Inventory.droplabel)
-            $("#other-inv-weight").html("Weight: " + (totalWeightOther / 1000).toFixed(2) + " / " + (Inventory.dropmaxweight / 1000).toFixed(2))
+            $("#other-inv-weight").html("Weight: " + (totalWeightOther / 1000).toFixed(2) + " / " + (Inventory.dropmaxweight / 1000).toFixed(2) + " lbs")
             var per123 =(totalWeightOther/1000)/(Inventory.dropmaxweight/100000)
             $(".pro1").css("width",per123+"%");
             otherMaxWeight = Inventory.dropmaxweight;
@@ -1519,7 +1519,7 @@ var requiredItemOpen = false;
         });
         var per =(totalWeight/1000)/(data.maxweight/100000)
         $(".pro").css("width",per+"%");
-        $("#player-inv-weight").html("Weight: " + (totalWeight / 1000).toFixed(2) + " / " + (data.maxweight / 1000).toFixed(2));
+        $("#player-inv-weight").html("Weight: " + (totalWeight / 1000).toFixed(2) + " / " + (data.maxweight / 1000).toFixed(2) + " lbs");
 
         handleDragDrop();
     };

@@ -844,7 +844,7 @@ RegisterNUICallback('combineWithAnim', function(data)
         TriggerEvent('inventory:client:ItemBox', QBCore.Shared.Items[combineData.reward], 'add')
     end, function() -- Cancel
         StopAnimTask(ped, aDict, aLib, 1.0)
-        QBCore.Functions.Notify("Mislukt!", "error")
+        QBCore.Functions.Notify("Failed!", "error")
     end)
 end)
 

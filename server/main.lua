@@ -519,7 +519,7 @@ AddEventHandler('inventory:server:SetInventoryData', function(fromInventory, toI
 				end
 			end
 		else
-			TriggerClientEvent("QBCore:Notify", src, "Je hebt dit item niet!", "error")
+			TriggerClientEvent("QBCore:Notify", src, "You don't have this item!", "error")
 		end
 	elseif QBCore.Shared.SplitStr(fromInventory, "-")[1] == "otherplayer" then
 		local playerId = tonumber(QBCore.Shared.SplitStr(fromInventory, "-")[2])
@@ -778,6 +778,9 @@ AddEventHandler('inventory:server:SetInventoryData', function(fromInventory, toI
 				TriggerClientEvent('qb-shops:client:UpdateShop', src, QBCore.Shared.SplitStr(shopType, "_")[2], itemData, fromAmount)
 				TriggerClientEvent('QBCore:Notify', src, itemInfo["label"] .. " bought!", "success")
 				TriggerEvent("qb-log:server:CreateLog", "shops", "Shop item bought", "green", "**"..GetPlayerName(src) .. "** bought a " .. itemInfo["label"] .. " for $"..price)
+
+--Uncomment The stuff below if you want it so stuff likes shops will take from your bank account if you dont have enough cash on hand
+
 			--elseif bankBalance >= price then
 			--	Player.Functions.RemoveMoney("bank", price, "itemshop-bought-item")
 			--	Player.Functions.AddItem(itemData.name, fromAmount, toSlot, itemData.info)
@@ -792,6 +795,9 @@ AddEventHandler('inventory:server:SetInventoryData', function(fromInventory, toI
 				Player.Functions.AddItem(itemData.name, fromAmount, toSlot, itemData.info)
 				TriggerClientEvent('QBCore:Notify', src, itemInfo["label"] .. " bought!", "success")
 				TriggerEvent("qb-log:server:CreateLog", "shops", "Shop item bought", "green", "**"..GetPlayerName(src) .. "** bought a " .. itemInfo["label"] .. " for $"..price)
+
+--Uncomment The stuff below if you want it so stuff likes shops will take from your bank account if you dont have enough cash on hand
+
 			--elseif bankBalance >= price then
 			--	Player.Functions.RemoveMoney("bank", price, "unkown-itemshop-bought-item")
 			--	Player.Functions.AddItem(itemData.name, fromAmount, toSlot, itemData.info)
@@ -1518,7 +1524,7 @@ QBCore.Commands.Add("resetinv", "Reset Inventory (Admin Only)", {{name="type", h
 			TriggerClientEvent('QBCore:Notify', source,  "Not a valid type..", "error")
 		end
 	else
-		TriggerClientEvent('QBCore:Notify', source,  "Argumenten not filled out correctly..", "error")
+		TriggerClientEvent('QBCore:Notify', source,  "Args not filled out correctly..", "error")
 	end
 end, "admin")
 
@@ -1571,7 +1577,7 @@ QBCore.Commands.Add("giveitem", "Give An Item (Admin Only)", {{name="id", help="
 			TriggerClientEvent('QBCore:Notify', source,  "Invalid Amount", "error")
 		end
 	else
-		TriggerClientEvent('QBCore:Notify', source,  "Player Is Not Online", "error")
+		TriggerClientEvent('QBCore:Notify', source,  "Invalid Player ID", "error")
 	end
 end, "admin")
 

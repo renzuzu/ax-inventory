@@ -1357,7 +1357,7 @@ var requiredItemOpen = false;
                 $(".other-inventory").append('<div class="item-slot" data-slot="' + i + '"><div class="item-slot-img"></div><div class="item-slot-label"><p>&nbsp;</p></div></div>');
             }
             $(".other-inventory .item-slot").css({
-                "background-color": "rgba(120, 10, 20, 0.05)"
+                "background-color": "rgba(120, 10, 20, 0.00)"
             });
         }
 

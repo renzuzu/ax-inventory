@@ -83,7 +83,7 @@ AddEventHandler('randPickupAnim', function()
     while not HasAnimDictLoaded("pickup_object") do RequestAnimDict("pickup_object") Wait(100) end
     TaskPlayAnim(PlayerPedId(),'pickup_object', 'putdown_low',5.0, 1.5, 1.0, 48, 0.0, 0, 0, 0)
     Wait(1000)
-    ClearPedSecondaryTask(PlayerPedId())
+    --ClearPedTasks(PlayerPedId())
 end)
 
 function DrawText3Ds(x, y, z, text)
@@ -788,8 +788,9 @@ RegisterNUICallback("CloseInventory", function(data, cb)
         CurrentGlovebox = nil
         CurrentStash = nil
         SetNuiFocus(false, false)
+        TriggerScreenblurFadeOut(0)
         inInventory = false
-        ClearPedTasks(PlayerPedId())
+        --ClearPedTasks(PlayerPedId())
         return
     end
     if CurrentVehicle ~= nil then
@@ -803,10 +804,11 @@ RegisterNUICallback("CloseInventory", function(data, cb)
         TriggerServerEvent("inventory:server:SaveInventory", "stash", CurrentStash)
         CurrentStash = nil
     else
+        print("Closed Inv - Drop")
         TriggerServerEvent("inventory:server:SaveInventory", "drop", CurrentDrop)
         CurrentDrop = 0
     end
-    TriggerEvent('randPickupAnim')
+    --TriggerEvent('randPickupAnim')
     TriggerScreenblurFadeOut(0)
     SetNuiFocus(false, false)
     inInventory = false
@@ -861,6 +863,7 @@ RegisterNUICallback("PlayDropFail", function(data, cb)
 end)
 
 function OpenTrunk()
+    Wait(500)
     local vehicle = QBCore.Functions.GetClosestVehicle()
     while (not HasAnimDictLoaded("amb@prop_human_bum_bin@idle_b")) do
         RequestAnimDict("amb@prop_human_bum_bin@idle_b")

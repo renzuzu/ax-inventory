@@ -259,16 +259,16 @@ AddEventHandler('inventory:server:OpenInventory', function(name, id, other)
 				else
 					if Drops[id] ~= nil and not Drops[id].isOpen then
 						secondInv.name = id
-						secondInv.label = "Dropped-"..tostring(id)
-						secondInv.maxweight = 100000
+						secondInv.label = "Ground-"..tostring(id)
+						secondInv.maxweight = 500000
 						secondInv.inventory = Drops[id].items
 						secondInv.slots = 30
 						Drops[id].isOpen = src
 						Drops[id].label = secondInv.label
 					else
 						secondInv.name = "none-inv"
-						secondInv.label = "Dropped-None"
-						secondInv.maxweight = 100000
+						secondInv.label = "ERROR"
+						secondInv.maxweight = 0
 						secondInv.inventory = {}
 						secondInv.slots = 0
 						--Drops[id].label = secondInv.label

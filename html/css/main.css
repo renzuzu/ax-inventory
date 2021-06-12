@@ -39,7 +39,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 ::-webkit-scrollbar-thumb
 {
-	background-color:rgb(48,70,93);
+	background-color: #31465A;
 }
 
 body {
@@ -257,7 +257,7 @@ body {
     margin-top: 20%;
     width: 80%;
     height: 50px;
-    background-color:  #466887; /* rgba(20, 20, 20, 0.5) */
+    background-color:  #31465A; /* rgba(20, 20, 20, 0.5) */
     border: 1px solid rgba(255, 255, 255, 0.01);
     color: white;
     transition: background-color .1s linear;
@@ -295,7 +295,7 @@ body {
     position: absolute;
     bottom: 0;
     width: 100%;
-    background-color: #181E25;
+    background-color: #252b33;
     min-height: 2vh;
     height: auto;
       border-radius: 0px 0px 8px 8px ;
@@ -315,8 +315,8 @@ body {
     position: absolute;
     bottom: 2vh;
     width: 100%;
-    height: 1.2vh;
-    background-color: rgba(32, 6, 6, 0.15);
+    height: .55vh;
+    background-color: rgba(32, 6, 6, 0);
 }
 
 .item-slot-quality-bar {
@@ -330,7 +330,7 @@ body {
 }
 
 .item-slot-quality p {
-    color: rgb(247, 247, 247);
+    color: rgba(247, 247, 247, 0);
     font-size: .8vh;
     text-align: center;
     text-transform: uppercase;
@@ -370,7 +370,7 @@ body {
 #player-inv-label {
     position: relative;
     color: white;
-    font-size: 18px;
+    font-size: 25px;
     font-family: 'Lato', monospace;
     font-weight: bold;
     letter-spacing: 0.1vh;
@@ -379,8 +379,8 @@ body {
 }
 
 #player-inv-weight {
-    color: white;
-    font-size: 11px;
+    color: rgb(255, 255, 255);
+    font-size: 12px;
     font-family: 'Lato', monospace;
     letter-spacing: 0.1vh;
     float: left;
@@ -389,7 +389,7 @@ body {
 #other-inv-label {
     position: relative;
     color: white;
-    font-size: 18px;
+    font-size: 25px;
     font-family: 'Lato', monospace;
     font-weight: bold;
     letter-spacing: 0.1vh;
@@ -399,7 +399,7 @@ body {
 
 #other-inv-weight {
     color: white;
-    font-size: 11px;
+    font-size: 12px;
     font-family: 'Lato', monospace;
     letter-spacing: 0.1vh;
     float: left;
@@ -408,11 +408,11 @@ body {
 .player-inv-weight {
     position: absolute;
     left: 38%;
-    top: 12%;
+    top: 10%;
 }
 
 .player-inv-weight p {
-    color: white;
+    color: rgb(204, 11, 11);
     font-size: 12px;
     font-family: 'Roboto Mono', monospace;
 }

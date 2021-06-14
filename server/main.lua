@@ -1470,6 +1470,7 @@ end
 function CreateNewDrop(source, fromSlot, toSlot, itemAmount)
 	local Player = QBCore.Functions.GetPlayer(source)
 	local itemData = Player.Functions.GetItemBySlot(fromSlot)
+	local coords = GetEntityCoords(GetPlayerPed(source))
 	if Player.Functions.RemoveItem(itemData.name, itemAmount, itemData.slot) then
 		TriggerClientEvent("inventory:client:CheckWeapon", source, itemData.name)
 		local itemInfo = QBCore.Shared.Items[itemData.name:lower()]
@@ -1493,7 +1494,7 @@ function CreateNewDrop(source, fromSlot, toSlot, itemAmount)
 		}
 		TriggerEvent("qb-log:server:CreateLog", "drop", "New Item Drop", "red", "**".. GetPlayerName(source) .. "** (citizenid: *"..Player.PlayerData.citizenid.."* | id: *"..source.."*) dropped new item; name: **"..itemData.name.."**, amount: **" .. itemAmount .. "**")
 		TriggerClientEvent("inventory:client:DropItemAnim", source)
-		TriggerClientEvent("inventory:client:AddDropItem", -1, dropId, source)
+		TriggerClientEvent("inventory:client:AddDropItem", -1, dropId, source, coords)
 		if itemData.name:lower() == "radio" then
 			TriggerClientEvent('qb-radio:onRadioDrop', source)
 		end

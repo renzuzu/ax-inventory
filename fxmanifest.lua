@@ -1,11 +1,7 @@
 fx_version 'adamant'
 game 'gta5'
 
-description 'Lauda Inventory Made By Axis'--[[MADE BY Ax is bro ther made by axis brother dream life roleplay ax is brother Axis#1672
-fuck Indian Empire RolePlay Fuk You All Halka gorib you too!]]--[[MADE BY Ax is bro ther made by axis brother dream life roleplay ax is brother Axis#1672
-fuck Indian Empire RolePlay Fuk You All Halka gorib you too!]]--[[MADE BY Ax is bro ther made by axis brother dream life roleplay ax is brother Axis#1672
-fuck Indian Empire RolePlay Fuk You All Halka gorib you too!]]--[[MADE BY Ax is bro ther made by axis brother dream life roleplay ax is brother Axis#1672
-fuck Indian Empire RolePlay Fuk You All Halka gorib you too!]]
+description 'Inventory Made By Axis fixed up by ihyajb'
 
 server_scripts {
 	"config.lua",
@@ -31,10 +27,3 @@ files {
 	'html/attachment_images/*.png',
 	'html/*.ttf',
 }
---[[MADE BY Ax is bro ther made by axis brother dream life roleplay ax is brother Axis#1672
-fuck Indian Empire RolePlay Fuk You All Halka gorib you too!]]--[[MADE BY Ax is bro ther made by axis brother dream life roleplay ax is brother Axis#1672
-fuck Indian Empire RolePlay Fuk You All Halka gorib you too!]]--[[MADE BY Ax is bro ther made by axis brother dream life roleplay ax is brother Axis#1672
-fuck Indian Empire RolePlay Fuk You All Halka gorib you too!]]--[[MADE BY Ax is bro ther made by axis brother dream life roleplay ax is brother Axis#1672
-fuck Indian Empire RolePlay Fuk You All Halka gorib you too!]]--[[MADE BY Ax is bro ther made by axis brother dream life roleplay ax is brother Axis#1672
-fuck Indian Empire RolePlay Fuk You All Halka gorib you too!]]--[[MADE BY Ax is bro ther made by axis brother dream life roleplay ax is brother Axis#1672
-fuck Indian Empire RolePlay Fuk You All Halka gorib you too!]]

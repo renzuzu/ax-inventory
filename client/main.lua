@@ -374,8 +374,8 @@ RegisterNetEvent("inventory:client:OpenInventory")
 AddEventHandler("inventory:client:OpenInventory", function(PlayerAmmo, inventory, other)
     if not IsEntityDead(PlayerPedId()) then
         ToggleHotbar(false)
-        TriggerScreenblurFadeIn(0)
         SetNuiFocus(true, true)
+        TriggerScreenblurFadeIn(0)
         if other ~= nil then
             currentOtherInventory = other.name
         end
@@ -704,7 +704,7 @@ AddEventHandler("inventory:client:CheckWeapon", function(weaponName)
     if currentWeapon == weaponName then 
         TriggerEvent('weapons:ResetHolster')
         SetCurrentPedWeapon(ped, GetHashKey("WEAPON_UNARMED"), true)
-        --RemoveAllPedWeapons(ped, true)
+        RemoveAllPedWeapons(ped, true)
         currentWeapon = nil
     end
 end)
@@ -725,12 +725,12 @@ end)
 
 RegisterNetEvent("inventory:client:RemoveDropItem")
 AddEventHandler("inventory:client:RemoveDropItem", function(dropId)
-    local ped = PlayerPedId()
     Drops[dropId] = nil
 end)
 
 RegisterNetEvent("inventory:client:DropItemAnim")
 AddEventHandler("inventory:client:DropItemAnim", function()
+    local ped = PlayerPedId()
     SendNUIMessage({
         action = "close",
     })
@@ -787,7 +787,7 @@ RegisterNUICallback("CloseInventory", function(data, cb)
         CurrentGlovebox = nil
         CurrentStash = nil
         SetNuiFocus(false, false)
-        TriggerScreenblurFadeOut(0)
+        TriggerScreenblurFadeOut(0)  --Screen Blur / Remove All TriggerScreenblurFadeOut's and TriggerScreenblurFadein's
         inInventory = false
         --ClearPedTasks(PlayerPedId())
         return
@@ -807,8 +807,8 @@ RegisterNUICallback("CloseInventory", function(data, cb)
         CurrentDrop = 0
     end
     --TriggerEvent('randPickupAnim')
-    TriggerScreenblurFadeOut(0)
     SetNuiFocus(false, false)
+    TriggerScreenblurFadeOut(0)
     inInventory = false
 end)
 RegisterNUICallback("UseItem", function(data, cb)

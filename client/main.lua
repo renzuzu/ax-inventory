@@ -3,7 +3,6 @@ QBCore = nil
 inInventory = false
 hotbarOpen = false
 
-local inventoryTest = {}
 local currentWeapon = nil
 local CurrentWeaponData = {}
 local currentOtherInventory = nil
@@ -64,20 +63,6 @@ AddEventHandler('weapons:client:SetCurrentWeapon', function(data, bool)
     end
 end)
 
-function GetClosestVending()
-    local ped = PlayerPedId()
-    local pos = GetEntityCoords(ped)
-    local object = nil
-    for _, machine in pairs(Config.VendingObjects) do
-        local ClosestObject = GetClosestObjectOfType(pos.x, pos.y, pos.z, 50.0, GetHashKey(machine), 0, 0, 0)
-        if ClosestObject ~= 0 and ClosestObject ~= nil then
-            if object == nil then
-                object = ClosestObject
-            end
-        end
-    end
-    return object
-end
 RegisterNetEvent('randPickupAnim')
 AddEventHandler('randPickupAnim', function()
     while not HasAnimDictLoaded("pickup_object") do RequestAnimDict("pickup_object") Wait(100) end
@@ -100,39 +85,6 @@ function DrawText3Ds(x, y, z, text)
     DrawRect(0.0, 0.0+0.0125, 0.017+ factor, 0.03, 0, 0, 0, 75)
     ClearDrawOrigin()
 end
-
-Citizen.CreateThread(function()
-    while true do
-        local ped = PlayerPedId()
-        local pos = GetEntityCoords(ped)
-        local inRange = false
-        local VendingMachine = GetClosestVending()
-
-        if VendingMachine ~= nil then
-            local VendingPos = GetEntityCoords(VendingMachine)
-            local Distance = #(pos - vector3(VendingPos.x, VendingPos.y, VendingPos.z))
-            if Distance < 2 then
-                inRange = true
-                if Distance < 1.5 then
-                    DrawText3Ds(VendingPos.x, VendingPos.y, VendingPos.z, '~g~E~w~ - Buy drinks')
-                    if IsControlJustPressed(0, 38) then -- E
-                        local ShopItems = {}
-                        ShopItems.label = "Vending Machine"
-                        ShopItems.items = Config.VendingItem
-                        ShopItems.slots = #Config.VendingItem
-                        TriggerServerEvent("inventory:server:OpenInventory", "shop", "Vendingshop_"..math.random(1, 99), ShopItems)
-                    end
-                end
-            end
-        end
-
-        if not inRange then
-            Citizen.Wait(1000)
-        end
-
-        Citizen.Wait(1)
-    end
-end)
 
 Citizen.CreateThread(function()
     while true do
@@ -190,7 +142,7 @@ Citizen.CreateThread(function()
                                     curVeh = vehicle
                                     CurrentGlovebox = nil
                                 else
-                                    QBCore.Functions.Notify("Vehicle is locked..", "error")
+                                    QBCore.Functions.Notify("Vehicle is locked", "error")
                                     return
                                 end
                             else

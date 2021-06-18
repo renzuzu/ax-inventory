@@ -592,7 +592,7 @@ body {
     float: left;
     margin-left: 2px;
     margin-bottom: 2px;
-    background-color: rgba(255, 255, 255, 0.03);
+    background-color: rgba(0, 0, 0, 0.123);;
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: opacity 0.2s;
     opacity: 1.0;
@@ -614,7 +614,7 @@ body {
     position: absolute;
     bottom: 0;
     width: 100%;
-    background-color: #181E25;
+    background-color: #243a4e70;
     min-height: 2.2vh;
     height: fit-content;
      border-radius: 0px 0px 8px 8px ;

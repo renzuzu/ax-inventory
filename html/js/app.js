@@ -1329,7 +1329,7 @@ var requiredItemOpen = false;
             requiredItemOpen = false;
         }
 
-        $("#qbus-inventory").fadeIn(300);
+        $("#qbus-inventory").fadeIn(800);
         if(data.other != null && data.other != "") {
             $(".other-inventory").attr("data-inventory", data.other.name);
         } else {
@@ -1461,7 +1461,7 @@ var requiredItemOpen = false;
         $(".item-slot").css("border", "1px solid rgba(255, 255, 255, 0.1)");
         $(".ply-hotbar-inventory").css("display", "block");
         $(".ply-iteminfo-container").css("display", "none");
-        $("#qbus-inventory").fadeOut(300);
+        $("#qbus-inventory").fadeOut(200);
         $(".combine-option-container").hide();
         $(".item-slot").remove();
         if ($("#rob-money").length) {
